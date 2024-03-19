@@ -1,18 +1,18 @@
-package com.olcay.SpringBootIntro.service;
+package com.olcay.springBootIntro.service;
 
-import com.olcay.SpringBootIntro.domain.Student;
-import com.olcay.SpringBootIntro.dto.InfoDTO;
-import com.olcay.SpringBootIntro.exception.ConflictException;
-import com.olcay.SpringBootIntro.exception.StudentNotFoundException;
-import com.olcay.SpringBootIntro.repository.StudentRepository;
+import com.olcay.springBootIntro.domain.Student;
+import com.olcay.springBootIntro.dto.InfoDTO;
+import com.olcay.springBootIntro.exception.ConflictException;
+import com.olcay.springBootIntro.exception.StudentNotFoundException;
+import com.olcay.springBootIntro.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.sound.sampled.Line;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -99,9 +99,12 @@ public class StudentService {
     }
 
 
-    public InfoDTO getInfoById(Long id) {
-        Student student=repository.getById(id);
-        InfoDTO infoDTO=new InfoDTO(student);
+
+    //We removed @NotNull-@Not Blank constraints within the DTO class
+    //We will fetch DTO from repo, there is a possibility of it being null--->OPTIONAL-->EXCEPTION
+    public InfoDTO getInfoDTOById(Long id) {
+        InfoDTO infoDTO=repository.getInfoDTOById(id).orElseThrow(()-> new  StudentNotFoundException("Student is not found by id:"+id));
         return infoDTO;
     }
+
 }

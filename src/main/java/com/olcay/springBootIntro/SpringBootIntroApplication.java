@@ -1,4 +1,4 @@
-package com.olcay.SpringBootIntro;
+package com.olcay.springBootIntro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

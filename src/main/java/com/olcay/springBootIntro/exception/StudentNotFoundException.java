@@ -1,4 +1,4 @@
-package com.olcay.SpringBootIntro.exception;
+package com.olcay.springBootIntro.exception;
 
 public class StudentNotFoundException extends RuntimeException {
     public StudentNotFoundException(String message){

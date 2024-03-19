@@ -1,4 +1,4 @@
-package com.olcay.SpringBootIntro;
+package com.olcay.springBootIntro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

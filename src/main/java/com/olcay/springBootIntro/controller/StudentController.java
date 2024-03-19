@@ -1,8 +1,8 @@
-package com.olcay.SpringBootIntro.controller;
+package com.olcay.springBootIntro.controller;
 
-import com.olcay.SpringBootIntro.domain.Student;
-import com.olcay.SpringBootIntro.dto.InfoDTO;
-import com.olcay.SpringBootIntro.service.StudentService;
+import com.olcay.springBootIntro.domain.Student;
+import com.olcay.springBootIntro.dto.InfoDTO;
+import com.olcay.springBootIntro.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -104,10 +104,10 @@ public class StudentController {
 
 
     @GetMapping("/info/{id}")
-    public ResponseEntity<InfoDTO>getInfoById(@PathVariable Long id){
-        InfoDTO infoDTO=service.getInfoById(id);
+    public ResponseEntity<InfoDTO>getInfoDTOById(@PathVariable Long id){
+        InfoDTO infoDTO=service.getInfoDTOById(id);
+
         return new ResponseEntity<>(infoDTO,HttpStatus.OK);
     }
-
 
 }

@@ -1,4 +1,4 @@
-package com.olcay.SpringBootIntro.domain;
+package com.olcay.springBootIntro.domain;
 
 
 import lombok.*;

@@ -1,6 +1,6 @@
-package com.olcay.SpringBootIntro.dto;
+package com.olcay.springBootIntro.dto;
 
-import com.olcay.SpringBootIntro.domain.Student;
+import com.olcay.springBootIntro.domain.Student;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
