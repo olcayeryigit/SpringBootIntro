@@ -1,6 +1,7 @@
 package com.olcay.SpringBootIntro.controller;
 
 import com.olcay.SpringBootIntro.domain.Student;
+import com.olcay.SpringBootIntro.dto.InfoDTO;
 import com.olcay.SpringBootIntro.service.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -33,7 +34,7 @@ public class StudentController {
         return ResponseEntity.ok(studentList);
     }
 
-    //id information will not appear on the frontend
+    //*id information will not appear on the frontend
     @PostMapping
     public ResponseEntity<String> createStudent(@Valid @RequestBody Student student) {
         service.createStudent(student);
@@ -62,8 +63,8 @@ public class StudentController {
 
 
     @PatchMapping("/update/{id}")
-    public ResponseEntity<String> updateStudent(@PathVariable("id") Long id, @Valid @RequestBody Student student) {
-        service.updateStudent(id, student);
+    public ResponseEntity<String> updateStudent(@PathVariable("id") Long id, @Valid @RequestBody InfoDTO updateDTO) {
+        service.updateStudent(id, updateDTO);
         String response = "Student is updated succesfully";
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -89,7 +90,7 @@ public class StudentController {
 
     @GetMapping("/name")
     public ResponseEntity<List<Student>>getStudentByName(@RequestParam("name") String name){
-        List<Student> studentList= service.getByName(name);
+        List<Student> studentList= service.getAllStudentByName(name);
         return new  ResponseEntity<>(studentList,HttpStatus.OK);
     }
 
@@ -101,10 +102,12 @@ public class StudentController {
        return new  ResponseEntity<>(studentList,HttpStatus.OK);
     }
 
+
     @GetMapping("/info/{id}")
-    public ResponseEntity<String>getInfoById(@PathVariable Long id){
-        String info=service.getInfoById(id);
-        return new ResponseEntity<>(info,HttpStatus.OK);
+    public ResponseEntity<InfoDTO>getInfoById(@PathVariable Long id){
+        InfoDTO infoDTO=service.getInfoById(id);
+        return new ResponseEntity<>(infoDTO,HttpStatus.OK);
     }
+
 
 }
