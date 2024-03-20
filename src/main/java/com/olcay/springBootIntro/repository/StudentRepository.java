@@ -29,4 +29,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     //We convert students to DTOs in the repository
     @Query("SELECT new com.olcay.springBootIntro.dto.InfoDTO(s) FROM Student s WHERE id=:pId")
     Optional<InfoDTO> getInfoDTOById(@Param("pId") Long id);
+
+
 }

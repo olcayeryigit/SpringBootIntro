@@ -38,7 +38,7 @@ public class StudentController {
     @PostMapping
     public ResponseEntity<String> createStudent(@Valid @RequestBody Student student) {
         service.createStudent(student);
-        String response = "Student is created succesfully";
+        String response = "Student created succesfully";
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
@@ -57,7 +57,7 @@ public class StudentController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteStudentById(@PathVariable("id") Long id) {
         service.deleteById(id);
-        String response = "Student is deleted succesfully";
+        String response = "Student deleted succesfully";
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -65,7 +65,7 @@ public class StudentController {
     @PatchMapping("/update/{id}")
     public ResponseEntity<String> updateStudent(@PathVariable("id") Long id, @Valid @RequestBody InfoDTO updateDTO) {
         service.updateStudent(id, updateDTO);
-        String response = "Student is updated succesfully";
+        String response = "Student updated succesfully";
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -109,5 +109,6 @@ public class StudentController {
 
         return new ResponseEntity<>(infoDTO,HttpStatus.OK);
     }
+
 
 }
